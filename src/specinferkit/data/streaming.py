@@ -1,6 +1,7 @@
 """Streaming cache for online training mode."""
 
 from collections.abc import Iterator
+
 import torch
 
 
@@ -28,7 +29,11 @@ class StreamingCache:
             outputs = self.target_model(input_ids.to(self.device))
         return {
             "logits": outputs.logits.cpu(),
-            "hidden_states": outputs.hidden_states[-1].cpu() if hasattr(outputs, "hidden_states") else None,
+            "hidden_states": (
+                outputs.hidden_states[-1].cpu()
+                if hasattr(outputs, "hidden_states")
+                else None
+            ),
         }
 
     def __iter__(self) -> Iterator[dict]:

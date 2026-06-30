@@ -1,6 +1,7 @@
 """Dataset classes for speculative decoding training."""
 
 import json
+
 import torch
 from torch.utils.data import Dataset
 
@@ -23,7 +24,7 @@ class SpeculativeDataset(Dataset):
         self._load_data()
 
     def _load_data(self):
-        with open(self.data_path, "r") as f:
+        with open(self.data_path) as f:
             self.examples = [json.loads(line) for line in f]
 
     def __len__(self):
@@ -33,4 +34,8 @@ class SpeculativeDataset(Dataset):
         example = self.examples[idx]
         input_ids = torch.tensor(example["input_ids"][: self.max_length], dtype=torch.long)
         labels = torch.tensor(example["labels"][: self.max_length], dtype=torch.long)
-        return {"input_ids": input_ids, "labels": labels, "attention_mask": torch.ones_like(input_ids)}
+        return {
+            "input_ids": input_ids,
+            "labels": labels,
+            "attention_mask": torch.ones_like(input_ids),
+        }

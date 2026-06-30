@@ -24,14 +24,14 @@ class ModelRegistry:
     def list_supported(cls) -> list:
         result = []
         for family, variants in SUPPORTED_MODELS.items():
-            for size, config in variants.items():
+            for size in variants:
                 result.append(f"{family}-{size}")
         return result
 
     @classmethod
     def get_config(cls, model_name: str) -> dict:
         for family, variants in SUPPORTED_MODELS.items():
-            for size, config in variants.items():
+            for size, _config in variants.items():
                 if f"{family}-{size}" == model_name:
                     return {"family": family, "size": size, **config}
         raise ValueError(f"Unknown model: {model_name}. Supported: {cls.list_supported()}")

@@ -20,7 +20,9 @@ class FP8Quantizer:
     def __init__(self, config: QuantizationConfig | None = None):
         self.config = config or QuantizationConfig()
         if self.config.dtype not in self.SUPPORTED_DTYPES:
-            raise ValueError(f"Unsupported dtype: {self.config.dtype}. Options: {self.SUPPORTED_DTYPES}")
+            raise ValueError(
+                f"Unsupported dtype: {self.config.dtype}. Options: {self.SUPPORTED_DTYPES}"
+            )
 
     def quantize(self, tensor):
         return {"data": tensor, "scale": 1.0, "dtype": self.config.dtype}
@@ -32,5 +34,5 @@ class FP8Quantizer:
 def quantize_cache(cache_path: str, dtype: str, output: str):
     print(f"[INFO] Quantizing cache at {cache_path} to {dtype}")
     print(f"[INFO] Output: {output}")
-    print(f"[INFO] Estimated storage reduction: 50%")
-    print(f"[INFO] Quantization complete.")
+    print("[INFO] Estimated storage reduction: 50%")
+    print("[INFO] Quantization complete.")
