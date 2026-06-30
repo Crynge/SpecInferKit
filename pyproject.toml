@@ -125,6 +125,7 @@ line-length = 100
 exclude = ["__init__.py", "build/", "dist/", "*.egg-info/"]
 
 [tool.ruff.lint]
+ignore = ["I001"]
 select = ["E", "F", "I", "N", "W", "UP", "B", "SIM"]
 
 [tool.mypy]

@@ -1,6 +1,7 @@
 """Medusa speculative decoding algorithm implementation."""
 
-from specinferkit.algorithms.base import SpeculativeDecodingAlgorithm, AlgorithmConfig
+from specinferkit.algorithms.base import AlgorithmConfig
+from specinferkit.algorithms.base import SpeculativeDecodingAlgorithm
 
 
 class MedusaAlgorithm(SpeculativeDecodingAlgorithm):

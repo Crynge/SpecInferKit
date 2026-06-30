@@ -33,5 +33,5 @@ class ModelRegistry:
         for family, variants in SUPPORTED_MODELS.items():
             for size, _config in variants.items():
                 if f"{family}-{size}" == model_name:
-                    return {"family": family, "size": size, **config}
+                    return {"family": family, "size": size, **_config}
         raise ValueError(f"Unknown model: {model_name}. Supported: {cls.list_supported()}")
