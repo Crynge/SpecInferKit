@@ -1,5 +1,6 @@
 """Tests for quantization."""
 
+import pytest
 from specinferkit.quantization.fp8 import FP8Quantizer, QuantizationConfig
 
 
