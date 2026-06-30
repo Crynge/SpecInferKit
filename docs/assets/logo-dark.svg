@@ -1,12 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 140" fill="none">
   <defs>
-    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1A2A3A;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0D1B2A;stop-opacity:1" />
+    <linearGradient id="sik-dark-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
   </defs>
-  <rect width="600" height="120" rx="16" fill="url(#g1)"/>
-  <text x="40" y="72" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#5D8AA8">SpecInferKit</text>
-  <text x="40" y="100" font-family="Arial, sans-serif" font-size="16" fill="#8899AA">Speculative Decoding Framework</text>
-  <polygon points="520,40 560,60 520,80" fill="#5D8AA8" opacity="0.6"/>
+  <rect x="0" y="0" width="600" height="140" rx="18" fill="url(#sik-dark-bg)"/>
+  <path d="M28 70 L80 35 L80 55 L50 70 L80 85 L80 105 Z" fill="#22D3EE" opacity="0.8"/>
+  <path d="M44 70 L96 35 L96 55 L66 70 L96 85 L96 105 Z" fill="#06B6D4" opacity="0.6"/>
+  <path d="M60 70 L112 35 L112 55 L82 70 L112 85 L112 105 Z" fill="#22D3EE" opacity="0.4"/>
+  <text x="140" y="68" font-family="'Courier New', monospace" font-size="38" font-weight="bold" fill="#22D3EE" letter-spacing="2">SpecInfer</text>
+  <text x="140" y="100" font-family="'Courier New', monospace" font-size="38" font-weight="bold" fill="#22D3EE" letter-spacing="2">Kit</text>
+  <text x="140" y="122" font-family="'Courier New', monospace" font-size="12" fill="#5EEAD4" letter-spacing="3">SPECULATIVE DECODING</text>
+  <circle cx="565" cy="70" r="20" fill="none" stroke="#22D3EE" stroke-width="2" opacity="0.5"/>
+  <circle cx="565" cy="70" r="8" fill="#22D3EE" opacity="0.3"/>
 </svg>
