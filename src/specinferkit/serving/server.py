@@ -21,7 +21,7 @@ class GenerateResponse(BaseModel):
 class InferenceServer:
     """REST API server for speculative decoding inference."""
 
-    def __init__(self, checkpoint_path: str = None):
+    def __init__(self, checkpoint_path: str | None = None):
         self.checkpoint_path = checkpoint_path
         self.app = FastAPI(title="SpecInferKit API", version="0.1.0", docs_url="/docs")
         self._setup_routes()

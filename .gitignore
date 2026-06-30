@@ -32,7 +32,7 @@ Thumbs.db
 
 # Data / checkpoints
 checkpoints/
-data/
+/data/
 wandb/
 mlruns/
 runs/

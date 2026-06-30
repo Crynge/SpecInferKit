@@ -1,7 +1,6 @@
 """Metrics collection and reporting."""
 
 import json
-from typing import Dict
 
 
 class MetricsCollector:

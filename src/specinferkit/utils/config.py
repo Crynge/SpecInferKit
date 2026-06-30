@@ -1,7 +1,6 @@
 """Configuration loading utilities."""
 
 import yaml
-from typing import Any
 
 
 def load_config(path: str) -> dict:

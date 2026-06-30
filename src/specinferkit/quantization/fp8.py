@@ -1,7 +1,6 @@
 """FP8 quantization for target cache storage reduction."""
 
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
@@ -18,7 +17,7 @@ class FP8Quantizer:
 
     SUPPORTED_DTYPES = ["float8_e4m3fn", "float8_e5m2"]
 
-    def __init__(self, config: Optional[QuantizationConfig] = None):
+    def __init__(self, config: QuantizationConfig | None = None):
         self.config = config or QuantizationConfig()
         if self.config.dtype not in self.SUPPORTED_DTYPES:
             raise ValueError(f"Unsupported dtype: {self.config.dtype}. Options: {self.SUPPORTED_DTYPES}")

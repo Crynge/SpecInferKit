@@ -1,7 +1,6 @@
 """Python client for the SpecInferKit inference API."""
 
 import requests
-from typing import Optional
 
 
 class Client:

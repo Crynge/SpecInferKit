@@ -18,7 +18,7 @@ BENCHMARK_REGISTRY = {
 class BenchmarkSuite:
     """Run evaluation benchmarks on trained models."""
 
-    def __init__(self, benchmarks: list = None):
+    def __init__(self, benchmarks: list | None = None):
         self.benchmarks = benchmarks or list(BENCHMARK_REGISTRY.keys())
 
     def run(self, model, tokenizer) -> dict:

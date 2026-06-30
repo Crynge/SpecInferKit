@@ -6,7 +6,7 @@ from specinferkit.algorithms.base import SpeculativeDecodingAlgorithm, Algorithm
 class MedusaAlgorithm(SpeculativeDecodingAlgorithm):
     """Medusa: Multiple draft heads for parallel token prediction."""
 
-    def __init__(self, config: AlgorithmConfig = None):
+    def __init__(self, config: AlgorithmConfig | None = None):
         super().__init__(config or AlgorithmConfig(name="medusa", target_model_name="", draft_model_name=""))
 
     def prepare_draft_model(self, target_model):

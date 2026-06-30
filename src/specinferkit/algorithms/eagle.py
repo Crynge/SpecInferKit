@@ -6,7 +6,7 @@ from specinferkit.algorithms.base import SpeculativeDecodingAlgorithm, Algorithm
 class EagleAlgorithm(SpeculativeDecodingAlgorithm):
     """Eagle-3: Auto-regressive draft model with feature-level fusion."""
 
-    def __init__(self, config: AlgorithmConfig = None):
+    def __init__(self, config: AlgorithmConfig | None = None):
         super().__init__(config or AlgorithmConfig(name="eagle", target_model_name="", draft_model_name=""))
 
     def prepare_draft_model(self, target_model):

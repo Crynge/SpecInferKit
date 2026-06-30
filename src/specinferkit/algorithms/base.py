@@ -2,7 +2,6 @@
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
@@ -20,7 +19,7 @@ class AlgorithmConfig:
 class SpeculativeDecodingAlgorithm(ABC):
     """Base class that all speculative decoding algorithms must implement."""
 
-    def __init__(self, config: Optional[AlgorithmConfig] = None):
+    def __init__(self, config: AlgorithmConfig | None = None):
         self.config = config or AlgorithmConfig(
             name=self.__class__.__name__,
             target_model_name="",
