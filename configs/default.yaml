@@ -1,0 +1,26 @@
+algorithm: eagle
+target_model:
+  name: Qwen3-4B
+  dtype: bfloat16
+  device_map: auto
+draft_model:
+  name: Qwen3-0.5B-Draft
+  trainable: true
+  learning_rate: 1e-4
+training:
+  mode: online
+  batch_size: 32
+  max_steps: 10000
+  grad_accumulation: 4
+  mixed_precision: bf16
+  distributed:
+    num_nodes: 1
+    gpus_per_node: 8
+    strategy: fsdp
+quantization:
+  enabled: true
+  dtype: float8_e4m3fn
+serving:
+  port: 8080
+  max_concurrent: 64
+  timeout_ms: 30000

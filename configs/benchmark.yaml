@@ -1,0 +1,15 @@
+benchmarks:
+  - gsm8k
+  - humaneval
+  - mbpp
+  - mt-bench
+  - livecodebench
+  - math500
+  - aime24
+  - aime25
+  - swe-bench
+eval:
+  batch_size: 16
+  max_new_tokens: 512
+  report_format: html
+  output_dir: ./reports

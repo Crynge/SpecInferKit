@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Environments
+.env
+.venv
+venv/
+env/
+virtualenv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data / checkpoints
+checkpoints/
+data/
+wandb/
+mlruns/
+runs/
+tensorboard_logs/
+
+# Cache
+*.cache
+target_cache/
+
+# Docker
+.docker/
+
+# Logs
+*.log
+logs/
+
+# Config local overrides
+configs/local.yaml

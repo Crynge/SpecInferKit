@@ -1,0 +1,148 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "specinferkit"
+version = "0.1.0"
+description = "Production-grade speculative decoding toolkit for LLMs — multi-algorithm, FP8 quantization, online training, distributed serving"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Sameer Alam" },
+]
+keywords = [
+    "speculative-decoding",
+    "llm-inference",
+    "draft-models",
+    "eagle",
+    "medusa",
+    "fp8-quantization",
+    "online-training",
+    "distributed-training",
+    "model-acceleration",
+    "deepseek",
+    "dspark",
+    "dflash",
+    "machine-learning",
+    "deep-learning",
+    "natural-language-processing",
+    "pytorch",
+    "transformer",
+    "inference-optimization",
+    "cuda",
+    "gpu-acceleration",
+    "llm-serving",
+    "ai-inference",
+    "model-serving",
+    "artifact-evaluation",
+    "research-framework",
+    "benchmarking",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "torch>=2.3.0",
+    "transformers>=4.40.0",
+    "numpy>=1.24.0",
+    "pyyaml>=6.0",
+    "tqdm>=4.64.0",
+    "tensorboard>=2.14.0",
+    "matplotlib>=3.7.0",
+    "safetensors>=0.4.0",
+    "sentencepiece>=0.1.99",
+    "datasets>=2.14.0",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+    "pre-commit>=3.5.0",
+    "black>=23.11.0",
+    "isort>=5.12.0",
+]
+distributed = [
+    "deepspeed>=0.12.0",
+    "torch-distributed>=2.3.0",
+    "flash-attn>=2.5.0",
+]
+serving = [
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "prometheus-client>=0.19.0",
+    "opentelemetry-api>=1.22.0",
+    "opentelemetry-sdk>=1.22.0",
+    "opentelemetry-instrumentation-fastapi>=0.43b0",
+]
+quantization = [
+    "torchao>=0.2.0",
+]
+all = [
+    "specinferkit[dev,distributed,serving,quantization]",
+]
+
+[project.urls]
+Homepage = "https://github.com/Crynge/SpecInferKit"
+Repository = "https://github.com/Crynge/SpecInferKit"
+Documentation = "https://github.com/Crynge/SpecInferKit#readme"
+Issues = "https://github.com/Crynge/SpecInferKit/issues"
+Changelog = "https://github.com/Crynge/SpecInferKit/releases"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/specinferkit"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/tests", "/configs", "/examples", "/scripts", "/docker"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=specinferkit --cov-report=term --cov-report=xml"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+exclude = ["__init__.py", "build/", "dist/", "*.egg-info/"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+ignore_missing_imports = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.coverage.run]
+source = ["specinferkit"]
+omit = ["*/tests/*", "*/__main__.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "def __repr__",
+    "def __str__",
+]
